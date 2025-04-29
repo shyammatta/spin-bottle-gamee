@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Category</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Very important for mobile -->
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .center {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            margin: 20px;
+        }
+        button {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    margin: 10px 0;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+       
+        button:hover {
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            transform: scale(1.05);
+        }
+
+        @media (min-width: 768px) {
+            .center {
+                padding: 40px;
+            }
+            h1 {
+                font-size: 32px;
+            }
+            button {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="center category">
+        <h1>Select Category</h1>
+        <button onclick="selectCategory('Kids')">Kids</button>
+        <button onclick="selectCategory('Teens')">Teens</button>
+        <button onclick="selectCategory('Adults')">Adults</button>
+    </div>
+
+    <script>
+        function selectCategory(category) {
+            localStorage.setItem('selectedCategory', category);
+            window.location.href = "add-names.html";
+        }
+    </script>
+
+</body>
+</html>

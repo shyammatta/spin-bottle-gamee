@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Players</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6D5BBA, #8D58BF, #B54F9C);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .center {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            max-width: 500px;
+            margin: 50px auto 0 auto;
+            text-align: center;
+        }
+
+        
+
+        h1 {
+            margin-bottom: 20px;
+            color: #6D5BBA;
+            font-size: 28px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #6D5BBA;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #B54F9C;
+        }
+
+        button {
+            background-color: #6D5BBA;
+            color: white;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #8D58BF;
+            transform: scale(1.05);
+        }
+
+        #playerList {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #playerList li {
+            margin: 10px 0;
+            font-size: 18px;
+            background: #f0e9ff;
+            padding: 10px 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .deleteBtn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: white;
+        }
+
+        .deleteBtn:hover {
+            background-color: #e60000;
+            color: white;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .center {
+                margin: 100px 20px 0 20px;
+                padding: 30px 20px;
+            }
+
+            .backButton {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            input[type="text"] {
+                width: 90%;
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            button {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+
+            #playerList li {
+                font-size: 16px;
+                padding: 8px 12px;
+            }
+
+            .deleteBtn {
+                font-size: 14px;
+                padding: 4px 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .center {
+                margin: 80px 10px 0 10px;
+                padding: 25px 15px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            input[type="text"] {
+                width: 95%;
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            button {
+                padding: 8px 14px;
+                font-size: 13px;
+            }
+
+            #playerList li {
+                font-size: 15px;
+                padding: 6px 10px;
+            }
+
+            .deleteBtn {
+                font-size: 13px;
+                padding: 3px 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button onclick="goBack()" class="backButton">🔙 Back</button>
+
+    <div class="center">
+        <h1>Add Players</h1>
+        <input type="text" id="playerName" placeholder="Enter Name">
+        <button onclick="addPlayer()">➕ Add</button>
+
+        <ul id="playerList"></ul>
+
+        <button onclick="goToSpin()">🎮 Play the Game</button>
+    </div>
+
+    <script>
+        let players = JSON.parse(localStorage.getItem("players")) || [];
+
+        function addPlayer() {
+            const nameInput = document.getElementById("playerName");
+            const name = nameInput.value.trim();
+            if (name) {
+                players.push(name);
+                localStorage.setItem("players", JSON.stringify(players));
+                nameInput.value = "";
+                displayPlayers();
+            }
+        }
+
+        function deletePlayer(index) {
+            players.splice(index, 1);
+            localStorage.setItem("players", JSON.stringify(players));
+            displayPlayers();
+        }
+
+        function displayPlayers() {
+            const list = document.getElementById("playerList");
+            list.innerHTML = "";
+            players.forEach((name, index) => {
+                const li = document.createElement("li");
+                li.textContent = name;
+
+                const delBtn = document.createElement("button");
+                delBtn.textContent = "❌";
+                delBtn.className = "deleteBtn";
+                delBtn.onclick = () => deletePlayer(index);
+
+                li.appendChild(delBtn);
+                list.appendChild(li);
+            });
+        }
+
+        function goToSpin() {
+            if (players.length < 2) {
+                alert("Add at least 2 players!");
+                return;
+            }
+            window.location.href = "spin.html";
+        }
+
+        function goBack() {
+            window.location.href = "category.html";
+        }
+
+        displayPlayers();
+    </script>
+</body>
+</html>
