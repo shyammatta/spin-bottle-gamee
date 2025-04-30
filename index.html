@@ -4,6 +4,71 @@
     <meta charset="UTF-8">
     <title>Spin The Bottle - Start</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Center Container */
+.center {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Title Styling */
+.center h1 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Button Styling */
+.center button {
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  background-color: #ff7e5f;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.center button:hover {
+  background-color: #eb5e28;
+}
+
+/* Responsive Text */
+@media (max-width: 480px) {
+  .center h1 {
+    font-size: 1.5rem;
+  }
+
+  .center button {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+}
+
+    </style>
 </head>
 <body>
     <div class="center">
