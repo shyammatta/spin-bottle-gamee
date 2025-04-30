@@ -29,11 +29,11 @@ function drawWheel() {
         ctx.textAlign = "center";
         ctx.fillStyle = "black";
         ctx.font = "20px Arial";
-        ctx.letterSpacing="20px";
+        ctx.letterSpacing = "20px";
 
         const name = players[i];
         for (let j = 0; j < name.length; j++) {
-            ctx.fillText(name[j], 150, (j - name.length/2) * 16);
+            ctx.fillText(name[j], 150, (j - name.length / 2) * 16);
         }
         ctx.restore();
     }
@@ -43,8 +43,8 @@ function drawWheel() {
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
     let color = '#';
-    for (let i = 0; i < 6; i++ ) {
-      color += letters[Math.floor(Math.random() * 16)];
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
 }
@@ -137,7 +137,7 @@ function selectAction(actionType) {
             "whats your dream",
             "ni frnd kosam cheppali ante m cheptav",
             "deepu is a boy or girl",
-            "angle kosam cheppu..",
+            "angel kosam cheppu..",
             "niku emani ante ekkuva kopam vastundi?",
             "likhitha is a serial villian  or not?",
             "niku katti icchi champamante evarni champutav?",
@@ -203,7 +203,7 @@ function selectAction(actionType) {
             "act like anavay",
             "act like charan",
             "talk in pure telugu",
-            
+
         ]
     };
 
