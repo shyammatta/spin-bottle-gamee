@@ -7,7 +7,8 @@ const questions = {
     teen: [
       "What's your biggest dream?",
       "Who's your favorite celebrity?",
-      "Would you rather travel to the future or past?"
+      "Would you rather travel to the future or past?",
+      ""
     ],
     adult: [
       "What's your most embarrassing moment?",
