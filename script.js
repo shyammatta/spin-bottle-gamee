@@ -85,7 +85,7 @@ function spinBottle() {
 
     // Play Spin Sound
     if (!spinSound) {
-        spinSound = new Audio('https://cdn.pixabay.com/download/audio/2022/03/15/audio_f357b0fc8b.mp3');
+        spinSound = new Audio('./bottle sound.mp3');
     }
     spinSound.play();
 
@@ -140,91 +140,91 @@ function pickWinner(finalAngle) {
 
 
 }
+const questions = {
+    "Truth": [
+        "What's your biggest fear?",
+        "Tell a secret nobody knows.",
+        "Have you ever cheated on a test?",
+        "who is your rolemodel",
+        "if you get a chance to marry..whom do you marry",
+        "intlo single ga unnapdu m chestav?",
+        "whats your dream",
+        "ni frnd kosam cheppali ante m cheptav",
+        "deepu is a boy or girl",
+        "angel kosam cheppu..",
+        "niku emani ante ekkuva kopam vastundi?",
+        "likhitha is a serial villian  or not?",
+        "niku katti icchi champamante evarni champutav?",
+        "nikosam kakunde inka evari kosam ekkuva think chestav?",
+        "bindu ekkuva m chestundi?",
+        "shyam is a good boy or bad boy?",
+        "ainaash kopam unda leka pichi undaa ?",
+        "rohan silent aa leka violent aa?",
+        "likhita tuttion ki velli m chestundii",
+        ""
 
+    ],
+    "Dare": [
+        "Do 10 jumping jacks!",
+        "Dance without music for 30 seconds!",
+        "Sing your favorite song loudly!",
+        "bark like a dog",
+        "gattiga navvu",
+        "eat mirchiiii",
+        "kiss ur brother  or sister",
+        "deepu talapaina water veyyyy",
+        "angel ki kopam teppinchuuu",
+        "anvay ni kottu",
+        "slap your favorate person",
+        "gattiga cry chey",
+        "likhita naveela cheyyyy",
+        "shyam anna kosam cheppu",
+        "do frog  jump",
+        "close your eyes walk 50meters",
+        "call ur and make him angryy",
+        "keep water in ur mouth and talk",
+        "tell me alphabets in reverse order",
+        "make ainaaash angryyy",
+        "behave like a celebrityyy",
+        "imitate your favorate person",
+        "touch ur nose with tongue",
+        "cycle tokkinattu act chey",
+        "act like ur favorate heroine",
+        "sing a song without opening ur mouth",
+        "roar like animal",
+        "do cat walk",
+        "banana tintunnatu act chey ",
+        "call ur mother and say u r fail in exam",
+        "charan ni ettuko",
+        "rishill la act chey",
+        "bindu ni bayapettu",
+        "clap using legs",
+
+
+    ],
+    "Bunnify": [
+        "Act like a bunny for 30 seconds!",
+        "Hop around the room!",
+        "Eat a carrot like a bunny!",
+        "act like angel",
+        "act like likihitaa",
+        "act like deepu",
+        "act like richill",
+        "act like bindu",
+        "cry like ainaash",
+        "laugh like rohan ",
+        "act like shyam",
+        "act like anavay",
+        "act like charan",
+        "talk in pure telugu",
+
+    ]
+};
 // Handle Action Selection (Truth, Dare, Bunnify)
 function selectAction(actionType) {
     selectedAction = actionType;
 
-    const questions = {
-        "Truth": [
-            "What's your biggest fear?",
-            "Tell a secret nobody knows.",
-            "Have you ever cheated on a test?",
-            "who is your rolemodel",
-            "if you get a chance to marry..whom do you marry",
-            "intlo single ga unnapdu m chestav?",
-            "whats your dream",
-            "ni frnd kosam cheppali ante m cheptav",
-            "deepu is a boy or girl",
-            "angel kosam cheppu..",
-            "niku emani ante ekkuva kopam vastundi?",
-            "likhitha is a serial villian  or not?",
-            "niku katti icchi champamante evarni champutav?",
-            "nikosam kakunde inka evari kosam ekkuva think chestav?",
-            "bindu ekkuva m chestundi?",
-            "shyam is a good boy or bad boy?",
-            "ainaash kopam unda leka pichi undaa ?",
-            "rohan silent aa leka violent aa?",
-            "likhita tuttion ki velli m chestundii",
-            ""
-
-        ],
-        "Dare": [
-            "Do 10 jumping jacks!",
-            "Dance without music for 30 seconds!",
-            "Sing your favorite song loudly!",
-            "bark like a dog",
-            "gattiga navvu",
-            "eat mirchiiii",
-            "kiss ur brother  or sister",
-            "deepu talapaina water veyyyy",
-            "angel ki kopam teppinchuuu",
-            "anvay ni kottu",
-            "slap your favorate person",
-            "gattiga cry chey",
-            "likhita naveela cheyyyy",
-            "shyam anna kosam cheppu",
-            "do frog  jump",
-            "close your eyes walk 50meters",
-            "call ur and make him angryy",
-            "keep water in ur mouth and talk",
-            "tell me alphabets in reverse order",
-            "make ainaaash angryyy",
-            "behave like a celebrityyy",
-            "imitate your favorate person",
-            "touch ur nose with tongue",
-            "cycle tokkinattu act chey",
-            "act like ur favorate heroine",
-            "sing a song without opening ur mouth",
-            "roar like animal",
-            "do cat walk",
-            "banana tintunnatu act chey ",
-            "call ur mother and say u r fail in exam",
-            "charan ni ettuko",
-            "rishill la act chey",
-            "bindu ni bayapettu",
-            "clap using legs",
-
-
-        ],
-        "Bunnify": [
-            "Act like a bunny for 30 seconds!",
-            "Hop around the room!",
-            "Eat a carrot like a bunny!",
-            "act like angel",
-            "act like likihitaa",
-            "act like deepu",
-            "act like richill",
-            "act like bindu",
-            "cry like ainaash",
-            "laugh like rohan ",
-            "act like shyam",
-            "act like anavay",
-            "act like charan",
-            "talk in pure telugu",
-
-        ]
-    };
+    
 
     let randomQuestion = questions[actionType][Math.floor(Math.random() * questions[actionType].length)];
 
@@ -312,12 +312,26 @@ function forfeit(){
  },2500)
 
 }
+function changeQuestion() {
+    if (!selectedAction) return;
+
+    let availableQuestions = questions[selectedAction];
+    if (!availableQuestions || availableQuestions.length === 0) return;
+
+    let newQuestion = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
+
+    document.getElementById('randomQuestion').textContent = newQuestion;
+}
+
 // On Page Load
 window.onload = () => {
     drawWheel();
     document.getElementById('bottle').addEventListener('click', spinBottle);
     document.getElementById('doneButton').addEventListener('click', done);
     document.getElementById('sButton').addEventListener('click', forfeit);
+    document.getElementById('changequestion').addEventListener('click', changeQuestion);
+
+
 
 
     // Setup action button clicks
