@@ -16,6 +16,7 @@ function drawWheel() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < totalPlayers; i++) {
+        // Draw segment
         ctx.beginPath();
         ctx.moveTo(200, 200);
         ctx.arc(200, 200, 180, i * arcSize, (i + 1) * arcSize);
@@ -23,21 +24,39 @@ function drawWheel() {
         ctx.fill();
         ctx.stroke();
 
-        ctx.save();
-        ctx.translate(200, 200);
-        ctx.rotate(i * arcSize + arcSize / 2);
-        ctx.textAlign = "center";
-        ctx.fillStyle = "black";
-        ctx.font = "20px Arial";
-        ctx.letterSpacing = "20px";
+        // Calculate text angle & position
+        const angle = i * arcSize + arcSize / 2;
+        const radius = 130;
+        const x = 200 + radius * Math.cos(angle);
+        const y = 200 + radius * Math.sin(angle);
 
-        const name = players[i];
-        for (let j = 0; j < name.length; j++) {
-            ctx.fillText(name[j], 150, (j - name.length / 2) * 16);
+        // Draw text
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(0); // always horizontal
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = "white";
+
+        // Dynamic font size based on name length
+        let fontSize = 18;
+        ctx.font = `${fontSize}px Arial`;
+
+        // Shrink font size if too wide
+        let maxWidth = 80; // max width to fit in a slice
+        while (ctx.measureText(players[i]).width > maxWidth && fontSize > 10) {
+            fontSize -= 1;
+            ctx.font = `${fontSize}px Arial`;
         }
+
+        ctx.fillText(players[i], 0, 0);
         ctx.restore();
     }
 }
+
+
+
+
 
 // Random Color
 function getRandomColor() {
@@ -59,7 +78,7 @@ function spinBottle() {
     if (spinning) return;
     spinning = true;
 
-    let randomSpin = 1000 + Math.floor(Math.random() * 360);
+    let randomSpin = 2000 + Math.floor(Math.random() * 360);
     let duration = 4000;
     let startTime = null;
     bottle = document.getElementById('bottle');
@@ -243,10 +262,28 @@ function done() {
 
     // Hide question area
     document.getElementById('questionArea').style.display = "none";
+    const dgifs=[
+        "dgif1.gif",
+        "dgif2.gif","dgif3.gif","dgif4.gif","dgif5.gif","dgif6.gif","dgif7.gif","dgif8.gif",
+        
+    ]
 
-    // Show bottle and wheel again
-    bottle.style.display = "block";
-    document.getElementById('wheel').style.display = "block";
+    bottle.style.display = "none";
+document.getElementById('wheel').style.display = "none";
+document.getElementById('wbutton').style.display='block';
+const randomimg=Math.floor(Math.random()*dgifs.length);
+
+document.getElementById('gifimg').src=dgifs[randomimg];
+
+setTimeout(()=>{
+    document.getElementById('wbutton').style.display='none';
+    document.getElementById('questionArea').style.display = "none";
+
+// Show bottle and wheel again
+bottle.style.display = "block";
+document.getElementById('wheel').style.display = "block";
+},2500)
+    
 }
 
 function forfeit(){
@@ -254,7 +291,8 @@ function forfeit(){
         "gif1.gif",
         "gif2.gif",
         "gif3.gif",
-        "gif4.gif"
+        "gif4.gif",
+        "gif5.gif","gif6.gif","gif7.gif","gif8.gif","gif9.gif","gif10.gif","gif11.gif","gif12.gif",
     ]
         document.getElementById('questionArea').style.display = "none";
         bottle.style.display = "none";
