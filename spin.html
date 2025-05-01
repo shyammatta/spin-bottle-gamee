@@ -155,7 +155,7 @@
                 padding: 30px 60px;
             }
 
-            #doneButton {
+            #doneButton,#sButton {
                 font-size: 32px;
                 padding: 16px 32px;
             }
@@ -173,6 +173,9 @@
             padding: 30px 60px;
             border-radius: 10px;
         }
+        .fortreit{
+            background-color: black;
+        }
     </style>
 
 </head>
@@ -185,6 +188,7 @@
     <img id="bottle" src="./botttleee.png">
 
     <div id="actionButtons" style="display:none; text-align:center;">
+
         <h2 id="selectedName"></h2>
 
 
@@ -192,14 +196,20 @@
         <button id="dareButton" class="primary-button">Dare</button>
         <button id="bunnifyButton" class="primary-button">Bunnify</button>
     </div>
+    <div id="wbutton" style="display: none;">
+        <img src="" id="gifimg" alt="" style="width:600px;height: 500px" >
+    </div>
+
 
     <div id="questionArea" style="display:none; text-align:center;">
         <h2 id="selectedName"></h2>
         <p id="randomQuestion"></p>
 
         <p id="timee">Time left: <span id="timer"></span> seconds</p>
+        <button id="sButton"  style="background-color: black;">forfeit</button>
         <button id="doneButton">Done</button>
     </div>
+    <div onclick=""></div>
     <script>
         function goBack() {
             window.location.href = "add-names.html";

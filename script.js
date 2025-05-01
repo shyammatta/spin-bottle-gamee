@@ -249,11 +249,38 @@ function done() {
     document.getElementById('wheel').style.display = "block";
 }
 
+function forfeit(){
+    let gifs=[
+        "gif1.gif",
+        "gif2.gif",
+        "gif3.gif",
+        "gif4.gif"
+    ]
+        document.getElementById('questionArea').style.display = "none";
+        bottle.style.display = "none";
+    document.getElementById('wheel').style.display = "none";
+    document.getElementById('wbutton').style.display='block';
+    const randomimg=Math.floor(Math.random()*gifs.length);
+
+    document.getElementById('gifimg').src=gifs[randomimg];
+
+    setTimeout(()=>{
+        document.getElementById('wbutton').style.display='none';
+        document.getElementById('questionArea').style.display = "none";
+
+    // Show bottle and wheel again
+    bottle.style.display = "block";
+    document.getElementById('wheel').style.display = "block";
+ },2000)
+
+}
 // On Page Load
 window.onload = () => {
     drawWheel();
     document.getElementById('bottle').addEventListener('click', spinBottle);
     document.getElementById('doneButton').addEventListener('click', done);
+    document.getElementById('sButton').addEventListener('click', forfeit);
+
 
     // Setup action button clicks
     document.getElementById('truthButton').addEventListener('click', () => selectAction("Truth")); // ADDED
