@@ -271,7 +271,7 @@ function forfeit(){
     // Show bottle and wheel again
     bottle.style.display = "block";
     document.getElementById('wheel').style.display = "block";
- },2000)
+ },2500)
 
 }
 // On Page Load
