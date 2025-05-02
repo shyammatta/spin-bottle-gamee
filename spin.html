@@ -37,34 +37,16 @@
             top: 10%;
         }
 
-        #questionArea {
-            background: white;
-            padding: 50px;
-            margin-top: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-            width: 90%;
-            max-width: 500px;
-            text-align: center;
-        }
-
+        
         #selectedName {
             color: #ff5e62;
             font-size: 52px;
             margin-bottom: 10px;
         }
 
-        #randomQuestion {
-            font-size: 66px;
-            color: #333;
-            margin-bottom: 20px;
-        }
+       
 
-        #timer {
-            font-weight: bold;
-            color: #ff5e62;
-            font-size: 24px;
-        }
+       
 
         #actionButtons {
             background: white;
@@ -97,25 +79,32 @@
             transform: scale(1.05);
         }
 
-        #doneButton {
-            background-color: #ff5e62;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 24px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-            margin-top: 20px;
+        .backButton {
+            font-size: 35px;
+            top: 50px;
+            left: 20px;
+            padding: 30px 60px;
+            border-radius: 10px;
         }
+       
+        #gifimg{
+            width:600px;height: 500px;
 
-        #doneButton:hover {
-            background-color: #ff4040;
-            transform: scale(1.05);
         }
+       
 
 
-        @media (min-width: 560px) {
+
+.action-button {
+    font-size: 40px;
+    padding: 26px 52px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+
+@media (min-width: 960px) {
             #bottle {
                 width: 150px;
                 height: 400px;
@@ -132,19 +121,12 @@
             }
 
             #randomQuestion {
-                font-size: 56px;
+                font-size: 36px;
+                color: white;
             }
-
-            #questionArea {
-                background: white;
-                margin-top: 40px;
-                border-radius: 15px;
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-                width: 90%;
-                max-width: 700px;
-                text-align: center;
+            #gifimg{
+                width:600px;height: 500px;
             }
-
             #actionButton {
                 padding: 20px;
                 gap: 80px;
@@ -155,37 +137,105 @@
                 padding: 30px 60px;
             }
 
-            #doneButton,#sButton {
-                font-size: 32px;
-                padding: 16px 32px;
-            }
-            #changequestion{
-                font-size: 32px;
-                padding: 16px 32px;
-
-
-
-            }
-
+            
             #timee,#timer {
-                font-size: 46px;
+                font-size: 36px;
+                
             }
-        }
+            #questionArea{
+                margin-top: 60px;
+                max-width: 700px;
+            }
+            #buttonContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding-top: 20px;
+    gap: 20px;
+}
+#sButton,#doneButton {
+    
+    padding: 20px;
+    font-size: 20px;
+}
+}
+@media (max-width: 790px){
+    
+    
+            #timee,#timer {
+                font-size: 36px;
+                
+            }
+            #timee{
+                margin-top: 500px;
+            }
+            #questionArea{
+                margin-top: 200px;
+                max-width: 800px;
+                height: 80vh;
+                padding: 50px;
+            }
 
-        .backButton {
-            font-size: 35px;
-            top: 50px;
-            left: 20px;
-            padding: 30px 60px;
-            border-radius: 10px;
-        }
-        .fortreit{
-            background-color: black;
-        }
-        #gifimg{
-            width:600px;height: 500px;
 
-        }
+#buttonContainer {
+    
+    padding-top: 20px;
+    gap: 40px;
+    
+    
+}
+        
+#sButton {
+    background-color: #000;
+    color: #fff;
+    
+}
+
+#doneButton {
+    background-color: #ff5e62;
+    color: #fff;
+    
+
+}
+
+#doneButton:hover {
+    background-color: #ff4040;
+    transform: scale(1.05);
+}
+
+#sButton:hover {
+    background-color: #222;
+    transform: scale(1.05);
+}
+#randomQuestion {
+                color: white;
+                font-size: 100px;
+            }
+}
+
+#timee{
+    margin-top: 400px;
+}
+#randomQuestion {
+                color: white;
+                font-size: 80px;
+            }
+ 
+#sButton,#doneButton {
+    
+    padding: 50px;
+    font-size: 40px;
+}  
+#questionArea{
+    max-width: 800px;
+}
+#changequestion{
+    padding: 40px;
+    font-size: 30px;
+}
+
+
+
     </style>
 
 </head>
@@ -217,8 +267,13 @@
         <button id="changequestion">change question</button>
 
         <p id="timee">Time left: <span id="timer"></span> seconds</p>
-        <button id="sButton"  style="background-color: black;">forfeit</button>
-        <button id="doneButton">Done</button>
+        <!-- Button container -->
+    <div id="buttonContainer">
+        <button id="sButton" class="action-button" style="background-color: black;">Forfeit</button>
+        <button id="doneButton" class="action-button">Done</button>
+    </div>
+
+       
     </div>
     <div onclick=""></div>
     <script>
